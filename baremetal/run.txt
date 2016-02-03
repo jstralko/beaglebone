@@ -1,0 +1,23 @@
+To run start up minicom with:
+
+$> sudo minicom -D /dev/ttyUSB0
+
+(/dev/ttyUSB0 is what i find in dmesg)
+
+Then do crl+a o and set the Hardware Flow to NO
+Then get to the u-boot prompt by pressing the enter key
+
+u-boot#loady
+crt+a s
+select ymodem
+select start.bin file
+Wait till the file has been transfered over to the devices
+u-boot#go 0x80300000
+You should see:
+
+## Starting application at 0x8030000 ...
+
+UUUUU
+
+If that happens you have successfully created a baremetal application on the 
+beaglebone.
